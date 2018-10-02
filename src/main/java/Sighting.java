@@ -24,6 +24,9 @@ public class Sighting {
     }
 
     public void setState(String state) {
+        if(state.equals(""))
+            this.state = "Not A State";
+        else
         this.state = state;
     }
 

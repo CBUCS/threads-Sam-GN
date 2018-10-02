@@ -58,6 +58,9 @@ public class Main {
         System.out.println("Canada: "+countrySighting.getCanada());
         System.out.println("UK: "+countrySighting.getUK());
         System.out.println("Unknown: "+countrySighting.getUnknown());
+
+        StateMapper states = new StateMapper(ufoList);
+        states.print();
     }
     public static void CounrtySighting (ArrayList<Sighting> pUFO,Country pCountry) {
 
