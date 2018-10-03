@@ -59,7 +59,7 @@ public class Sighting {
     public int getMonth (){
         List<String> split = Arrays.asList(dateTime.split(" "));
         List<String> split2 = Arrays.asList(split.get(0).split("/"));
-        return Integer.parseInt(split2.get(1));
+        return Integer.parseInt(split2.get(0));
     }
     public int getHour (){
         List<String> split = Arrays.asList(dateTime.split(" "));
