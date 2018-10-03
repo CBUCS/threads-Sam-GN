@@ -1,3 +1,5 @@
+package Classes;
+
 public class Country {
     private int USA;
     private int Canada;
