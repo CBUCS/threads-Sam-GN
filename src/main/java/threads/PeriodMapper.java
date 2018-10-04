@@ -42,6 +42,7 @@ public class PeriodMapper implements Runnable {
         logger.info("Goodbye, from thread: " + this.threadId);
     }
 
+    //I specified 5 keys for the periods, I then evaluate which ufo sighting belongs to which period by defining the boundaries
     public void incrementAt(Sighting pUFO) {
         int value;
         int key = 0;
@@ -56,6 +57,7 @@ public class PeriodMapper implements Runnable {
         } else if((pUFO.getHour()>0&&pUFO.getHour()<8)||(pUFO.getHour()==0&&pUFO.getMin()>=1)||(pUFO.getHour()==8&&pUFO.getMin()==0)){
             key = 5;
         }
+        //this is to test my boundaries are correct, if key 0 has no values, I did it correctly
         if(key==0)
             logger.error(pUFO.getDateTime());
 

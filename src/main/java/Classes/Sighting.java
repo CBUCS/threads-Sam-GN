@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Sighting {
-
+    //This class stores each sighting.
     private String dateTime;
     private String city;
     private String state;
@@ -52,6 +52,8 @@ public class Sighting {
         return state;
     }
 
+
+    //methods below extract year, month, hour and min from the date/time attribute
     public int getYear (){
         List<String> split = Arrays.asList(dateTime.split(" "));
         List<String> split2 = Arrays.asList(split.get(0).split("/"));

@@ -44,6 +44,7 @@ public class YearMapper implements Runnable {
         logger.info("Goodbye, from thread: " + this.threadId);
     }
 
+    //each year is considered as a key
     public void incrementAt(Sighting pUFO) {
         int value;
         if (mapper.containsKey(pUFO.getYear())) {

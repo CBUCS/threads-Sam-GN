@@ -44,6 +44,7 @@ public class CountryMapper implements Runnable {
         logger.info("Goodbye, from thread: " + this.threadId);
     }
 
+    //each country is considered as a key
     public void incrementAt(Sighting pUFO) {
         int value;
         if (mapper.containsKey(pUFO.getCountry())) {

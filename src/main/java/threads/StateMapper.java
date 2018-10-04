@@ -43,6 +43,7 @@ public class StateMapper implements Runnable{
         logger.info("Goodbye, from thread: " + this.threadId);
     }
 
+    //each state is considered as a key
     public void incrementAt(Sighting pUFO) {
         int value;
         if (mapper.containsKey(pUFO.getState())) {

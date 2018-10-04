@@ -43,6 +43,7 @@ public class MonthMapper implements Runnable {
 
     }
 
+    //each month is considered as a key
     public void incrementAt(Sighting pUFO) {
         int value;
         if (mapper.containsKey(pUFO.getMonth())) {
