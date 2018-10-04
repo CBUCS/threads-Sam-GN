@@ -51,6 +51,7 @@ public class Sighting {
     public String getState() {
         return state;
     }
+
     public int getYear (){
         List<String> split = Arrays.asList(dateTime.split(" "));
         List<String> split2 = Arrays.asList(split.get(0).split("/"));

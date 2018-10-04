@@ -13,21 +13,18 @@ public class CountryMapper implements Runnable {
 
     public static final Logger logger = LogManager.getLogger(CountryMapper.class);
 
-    public static int id = 1;
-
-    private int threadId = id;
+    private int threadId = 1;
 
     private boolean isDone = false;
 
-    private List<Sighting> integerList = new ArrayList<Sighting>();
+    private List<Sighting> sightingList = new ArrayList<Sighting>();
 
     public static ConcurrentHashMap<String, Integer> mapper = new ConcurrentHashMap<String, Integer>();
 
-    public CountryMapper(List<Sighting> input) {
-        this.threadId = StateMapper.id++;
+    public CountryMapper(List<Sighting> input, int pID) {
+        this.threadId = pID;
         //  logger.info("Creating thread: " + this.threadId);
-        integerList.addAll(input);
-        // run();
+        sightingList.addAll(input);
     }
 
     public int getId() {
@@ -35,21 +32,16 @@ public class CountryMapper implements Runnable {
     }
 
     public void run() {
-        int offset = 1;
 
         logger.info("Hello, from thread: " + this.threadId);
 
-        for (Sighting x : this.integerList) {
-            if (offset % 10000 == 0) {
-//                logger.info(String.format("Thread: %d\toffset: %d\tdata: %d", this.threadId, offset, x));
-            }
+        for (Sighting x : this.sightingList) {
 
             this.incrementAt(x);
 
-            offset++;
         }
         this.isDone = true;
-        //   logger.info("Goodbye, from thread: " + this.threadId);
+        logger.info("Goodbye, from thread: " + this.threadId);
     }
 
     public void incrementAt(Sighting pUFO) {
@@ -71,11 +63,9 @@ public class CountryMapper implements Runnable {
         for (String key:mapper.keySet()){
             if(key.equals(""))
                 logger.info("Unknown Countries"+": "+mapper.get(key));
-                //System.out.println("Not A State"+": "+mapper.get(key));
             else if(key.equals("gb"))
                 logger.info("uk"+": "+mapper.get(key));
             else
-                //System.out.println(key+": "+mapper.get(key));
                 logger.info(key+": "+mapper.get(key));
         }
     }
